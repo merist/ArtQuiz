@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcome_land"
+    tools:context="statha.meri.artquiz.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin60"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin10"
+            android:layout_marginTop="@dimen/margin20"
+            android:fontFamily="@font/angelina"
+            android:text="@string/welcome_message"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/welcomeText"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/name_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/login_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin30"
+        android:gravity="center"
+        android:hint="@string/name"
+        android:inputType="textCapWords"
+        android:textAlignment="center"
+        android:textColorHint="@color/colorPrimary" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin20"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/start"
+        android:textColor="@color/colorWhite" />
+
+</RelativeLayout>

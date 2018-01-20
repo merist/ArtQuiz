@@ -1,0 +1,89 @@
+<resources>
+    <!-- Question numbers-->
+    <string name="questionNo1">Question 1:</string>
+    <string name="questionNo2">Question 2:</string>
+    <string name="questionNo3">Question 3:</string>
+    <string name="questionNo4">Question 4:</string>
+    <string name="questionNo5">Question 5:</string>
+    <string name="questionNo6">Question 6:</string>
+    <string name="questionNo7">Question 7:</string>
+    <string name="questionNo8">Question 8:</string>
+    <string name="questionNo9">Question 9:</string>
+    <string name="questionNo10">Question 10:</string>
+
+    <!--Question content-->
+    <string name="app_name">Art Quiz</string>
+    <string name="question1">Mona Lisa painting by the Italian artist Leonardo da Vinci is located in :</string>
+    <string name="question2">Who is the composer of Für Elise :</string>
+    <string name="question3">Which books are not written by William Shakespeare :</string>
+    <string name="question4">The famous quote \"Why so serious?\" is from the movie :</string>
+    <string name="question5">What is the name of the sculpture in the picture :</string>
+    <string name="question6">Who is not a member of the English rock band \"The Beatles" :</string>
+    <string name="question7">Who is the painter of \"Vase with Twelve Sunflowers\" :</string>
+    <string name="question8">Which is the best selling album of all the time :</string>
+    <string name="question9">Who won the oscar for the movie \"The Revenant\" :</string>
+    <string name="question10">Which is the nationality of Ernest Hemingway :</string>
+
+    <!--Question options -->
+    <string name="answer1question1">Museo Nacional Del Prado, Madrid</string>
+    <string name="answer2question1">Louvre, Paris</string>
+    <string name="answer3question1">Uffizi Gallery Museum, Florence</string>
+    <string name="answer4question1">Musée D\'Orsay, Paris</string>
+
+    <string name="answer1question2">Frédéric Chopin</string>
+    <string name="answer2question2">Ludwig van Beethoven</string>
+    <string name="answer3question2">Wolfgang Amadeus Mozart</string>
+    <string name="answer4question2">Johann Sebastian Bach</string>
+
+    <string name="answer1question3">Hamlet</string>
+    <string name="answer2question3">The Merchant of Rome</string>
+    <string name="answer3question3">Julius Caesar</string>
+    <string name="answer4question3">King Richard</string>
+
+    <string name="answerQuestion4">the dark knight</string>
+
+    <string name="answer1question5">David</string>
+    <string name="answer2question5">Michelangelo</string>
+    <string name="answer3question5">Donatello</string>
+    <string name="answer4question5">Rafaello</string>
+
+    <string name="answer1question6">Paul McCartney </string>
+    <string name="answer2question6">John Legend</string>
+    <string name="answer3question6">George Michael</string>
+    <string name="answer4question6">Ringo Starr</string>
+
+    <string name="answer1question7">Pablo Picasso</string>
+    <string name="answer2question7">Rembrandt</string>
+    <string name="answer3question7">Edvard Munch</string>
+    <string name="answer4question7">Vincent van Gogh</string>
+
+    <string name="answer1question8">Hotel California, Eagles </string>
+    <string name="answer2question8">The Wall, Pink Floyd</string>
+    <string name="answer3question8">Thriller, Michael Jackson</string>
+    <string name="answer4question8">Greatest Hits, Queen</string>
+
+    <string name="answerQuestion9">leonardo di caprio</string>
+
+    <string name="answer1question10">American </string>
+    <string name="answer2question10">British</string>
+    <string name="answer3question10">Australian</string>
+    <string name="answer4question10">French</string>
+
+    <!-- General strings-->
+    <string name="name">Enter your name</string>
+    <string name="enter_movie_name">Enter movie name</string>
+    <string name="enter_actor_name">Enter actor\'s name</string>
+    <string name="welcome_message">Welcome to the Art Quiz</string>
+    <string name="start">Start</string>
+    <string name="welcome">Welcome</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="result">Art Quiz result</string>
+    <string name="tryAgain">Try again</string>
+    <string name="sendResult">Send result</string>
+    <string name="yourResult">Your result is</string>
+    <string name="enter_your_name">Please enter your name to start the quiz</string>
+    <string name="thank_you_message">Thank you for completing the Art Quiz.</string>
+    <string name="hello">Hello</string>
+
+</resources>

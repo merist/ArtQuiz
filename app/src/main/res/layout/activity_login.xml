@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcome"
+    tools:context="statha.meri.artquiz.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin60"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin10"
+            android:layout_marginTop="@dimen/margin80"
+            android:fontFamily="@font/angelina"
+            android:gravity="bottom"
+            android:text="@string/welcome_message"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/welcomeText"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/name_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin100"
+        android:hint="@string/name"
+        android:inputType="textCapWords"
+        android:textAlignment="center"
+        android:textColorHint="@color/colorPrimary" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_edit_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin10"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/start"
+        android:textColor="@color/colorWhite" />
+</RelativeLayout>
