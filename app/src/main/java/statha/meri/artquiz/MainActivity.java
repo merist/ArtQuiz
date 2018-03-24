@@ -67,8 +67,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EditText editTextQ4 = findViewById(R.id.question4_answer);
         String question4Text = editTextQ4.getText().toString();
         String userAnswerQ4 = getText(R.string.answerQuestion4).toString();
-        // Convert the user's input to lower case
-        editTextQ4.setAllCaps(false);
 
         // Answer for question 5
         RadioButton radioButtonQ5A1 = findViewById(R.id.question5answer1);
@@ -87,8 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EditText editTextQ9 = findViewById(R.id.question9answer);
         String question9Text = editTextQ9.getText().toString();
         String userAnswerQ9 = getText(R.string.answerQuestion9).toString();
-        // Convert the user's input to lower case
-        editTextQ9.setAllCaps(false);
 
         // Answer for question 10
         RadioButton radioButtonQ10A1 = findViewById(R.id.question10answer1);
@@ -105,8 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (radioButtonQ3A2.isChecked() && radioButtonQ3A4.isChecked()) {
             finalResult++;
         }
-        // Check answer for question 4
-        if (question4Text.equals(userAnswerQ4)) {
+        // Check answer for question 4 and ignore case from user input
+        if (question4Text.equalsIgnoreCase(userAnswerQ4)) {
             finalResult++;
         }
         // Check answer for question 5
@@ -125,8 +121,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (radioButtonQ8A3.isChecked()) {
             finalResult++;
         }
-        // Check answer for question 9
-        if (question9Text.equals(userAnswerQ9)) {
+        // Check answer for question 9 and ignore case from user input
+        if (question9Text.equalsIgnoreCase(userAnswerQ9)) {
             finalResult++;
         }
         // Check answer for question 10
