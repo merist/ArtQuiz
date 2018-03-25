@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String name;
     int finalResult = 0;
     String subject;
-    String body ;
+    String body;
     String[] addresses = {"meristatha@gmail.com"};
 
 
@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RadioButton radioButtonQ2A2 = findViewById(R.id.question2answer2);
 
         // Answers for question 3
-        CheckBox radioButtonQ3A2 = findViewById(R.id.question3answer2);
-        CheckBox radioButtonQ3A4 = findViewById(R.id.question3answer4);
+        CheckBox checkboxQ3A2 = findViewById(R.id.question3answer2);
+        CheckBox checkboxQ3A4 = findViewById(R.id.question3answer4);
 
         // Answer for question 4
         EditText editTextQ4 = findViewById(R.id.question4_answer);
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RadioButton radioButtonQ5A1 = findViewById(R.id.question5answer1);
 
         // Answers for question 6
-        CheckBox radioButtonQ6A2 = findViewById(R.id.question6answer2);
-        CheckBox radioButtonQ6A3 = findViewById(R.id.question6answer3);
+        CheckBox checkboxQ6A2 = findViewById(R.id.question6answer2);
+        CheckBox checkboxQ6A3 = findViewById(R.id.question6answer3);
 
         // Answer for question 7
         RadioButton radioButtonQ7A4 = findViewById(R.id.question7answer4);
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             finalResult++;
         }
         // Check answer for question 3
-        if (radioButtonQ3A2.isChecked() && radioButtonQ3A4.isChecked()) {
+        if (checkboxQ3A2.isChecked() && checkboxQ3A4.isChecked()) {
             finalResult++;
         }
         // Check answer for question 4 and ignore case from user input
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             finalResult++;
         }
         // Check answers for question 6
-        if (radioButtonQ6A2.isChecked() && radioButtonQ6A3.isChecked()) {
+        if (checkboxQ6A2.isChecked() && checkboxQ6A3.isChecked()) {
             finalResult++;
         }
         // Check answers for question 7
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (radioButtonQ10A1.isChecked()) {
             finalResult++;
         }
-        displayDialog(finalResult);
+        Toast.makeText(MainActivity.this, getText(R.string.yourResult) + " " + finalResult, Toast.LENGTH_SHORT).show();
     }
 
     // Register button click event, Call play method if button Play is clicked else call stop method.
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // Play music
-    public void play() {
+    private void play() {
         try {
             stop();
             mediaPlayer = MediaPlayer.create(this, R.raw.fur_elise);
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // Stop music
-    public void stop() {
+    private void stop() {
         try {
             if (mediaPlayer != null) {
                 mediaPlayer.stop();
@@ -166,61 +166,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (IllegalStateException e) {
             e.printStackTrace();
         }
-    }
-    /**
-     * Set all the fields for the email(the email address, the subject and the body)
-     *
-     * @param addresses - the email addresses to send the email
-     * @param subject - the subject of the email
-     * @param body - the content of the email
-     */
-    public void composeEmail(String[] addresses, String subject, String body) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        intent.putExtra(Intent.EXTRA_TEXT, body);
-
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
-    /**
-     * Display final result in a dialog. Add Cancel, Try again and Send result buttons in the dialog
-     * @param finalResult - is the final score of the user
-     */
-    public void displayDialog(int finalResult) {
-        int scorePercent = finalResult * 10;
-        body = getText(R.string.hello) + " " + name + "!";
-        body += "\n" + getText(R.string.thank_you_message) ;
-        body += "\n" + getText(R.string.yourResult) + " " + scorePercent+"%.";
-        subject = getText(R.string.result).toString();
-
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle(getText(R.string.result));
-        alertDialogBuilder.setMessage(name + ", " + getText(R.string.yourResult) + " " + scorePercent +"%");
-        alertDialogBuilder.setIcon(R.drawable.tick);
-        // Add cancel button to return in the main activity
-        alertDialogBuilder.setNegativeButton(getText(R.string.cancel), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-        // Add try again button to reset all the answers and begin again the quiz
-        alertDialogBuilder.setPositiveButton(getText(R.string.tryAgain), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                Intent mainActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
-                mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                getApplicationContext().startActivity(mainActivityIntent);
-                finish();
-            }
-        });
-        // Add send result button to send the final result by email
-        alertDialogBuilder.setNeutralButton(getText(R.string.sendResult), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                composeEmail(addresses,subject,body);
-            }
-        });
-        // Display the dialog
-        alertDialogBuilder.show();
     }
 }

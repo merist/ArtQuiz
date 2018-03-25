@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
 
     public static final String PREFS_NAME = "MyPrefsFile";
-    String  nameText = "";
+    String nameText = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,20 +30,18 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LoginActivity loginActivity = LoginActivity.this;
-                EditText editText = (EditText)findViewById(R.id.name_edit_text);
+                EditText editText = (EditText) findViewById(R.id.name_edit_text);
                 nameText = editText.getText().toString();
 
-                if(!TextUtils.isEmpty(nameText)) {
-                    SharedPreferences.Editor settings  = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+                if (!TextUtils.isEmpty(nameText)) {
+                    SharedPreferences.Editor settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
                     settings.putString("name", nameText);
                     settings.commit();
                     Intent mainActivityIntent = new Intent(loginActivity, MainActivity.class);
                     loginActivity.startActivity(mainActivityIntent);
                     finish();
-                }
-                else
-                {
-                    Toast.makeText(loginActivity,getText(R.string.enter_your_name), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(loginActivity, getText(R.string.enter_your_name), Toast.LENGTH_SHORT).show();
                 }
             }
         });
