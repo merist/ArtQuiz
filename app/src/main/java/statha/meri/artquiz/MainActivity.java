@@ -1,12 +1,8 @@
 package statha.meri.artquiz;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 
 import android.media.MediaPlayer;
-import android.net.Uri;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,11 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     MediaPlayer mediaPlayer;
     String name;
-    int finalResult = 0;
-    String subject;
-    String body;
-    String[] addresses = {"meristatha@gmail.com"};
-
+    int finalResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,40 +46,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void calculateResult(View view) {
         finalResult = 0;
         // Answer for question 1
-        RadioButton radioButtonQ1A2 = findViewById(R.id.question1answer2);
+        RadioButton radioButtonQ1A2 = findViewById(R.id.question1_answer2_rb);
 
         // Answer for question 2
-        RadioButton radioButtonQ2A2 = findViewById(R.id.question2answer2);
+        RadioButton radioButtonQ2A2 = findViewById(R.id.question2_answer2_rb);
 
         // Answers for question 3
-        CheckBox checkboxQ3A2 = findViewById(R.id.question3answer2);
-        CheckBox checkboxQ3A4 = findViewById(R.id.question3answer4);
+        CheckBox checkboxQ3A1 = findViewById(R.id.question3_answer1_chb);
+        CheckBox checkboxQ3A2 = findViewById(R.id.question3_answer2_chb);
+        CheckBox checkboxQ3A3 = findViewById(R.id.question3_answer3_chb);
+        CheckBox checkboxQ3A4 = findViewById(R.id.question3_answer4_chb);
 
         // Answer for question 4
-        EditText editTextQ4 = findViewById(R.id.question4_answer);
+        EditText editTextQ4 = findViewById(R.id.question4_answer_etx);
         String question4Text = editTextQ4.getText().toString();
         String userAnswerQ4 = getText(R.string.answerQuestion4).toString();
 
         // Answer for question 5
-        RadioButton radioButtonQ5A1 = findViewById(R.id.question5answer1);
+        RadioButton radioButtonQ5A1 = findViewById(R.id.question5_answer1_rb);
 
         // Answers for question 6
-        CheckBox checkboxQ6A2 = findViewById(R.id.question6answer2);
-        CheckBox checkboxQ6A3 = findViewById(R.id.question6answer3);
+        CheckBox checkboxQ6A1 = findViewById(R.id.question6_answer1_chb);
+        CheckBox checkboxQ6A2 = findViewById(R.id.question6_answer2_chb);
+        CheckBox checkboxQ6A3 = findViewById(R.id.question6_answer3_chb);
+        CheckBox checkboxQ6A4 = findViewById(R.id.question6_answer4_chb);
 
         // Answer for question 7
-        RadioButton radioButtonQ7A4 = findViewById(R.id.question7answer4);
+        RadioButton radioButtonQ7A4 = findViewById(R.id.question7_answer4_rb);
 
         // Answer for question 8
-        RadioButton radioButtonQ8A3 = findViewById(R.id.question8answer3);
+        RadioButton radioButtonQ8A3 = findViewById(R.id.question8_answer3_rb);
 
         // Answer for question 9
-        EditText editTextQ9 = findViewById(R.id.question9answer);
+        EditText editTextQ9 = findViewById(R.id.question9_answer_etx);
         String question9Text = editTextQ9.getText().toString();
         String userAnswerQ9 = getText(R.string.answerQuestion9).toString();
 
         // Answer for question 10
-        RadioButton radioButtonQ10A1 = findViewById(R.id.question10answer1);
+        RadioButton radioButtonQ10A1 = findViewById(R.id.question10_answer1_rb);
 
         // Check answer for question 1
         if (radioButtonQ1A2.isChecked()) {
@@ -98,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             finalResult++;
         }
         // Check answer for question 3
-        if (checkboxQ3A2.isChecked() && checkboxQ3A4.isChecked()) {
+        if (checkboxQ3A2.isChecked() && checkboxQ3A4.isChecked() && !checkboxQ3A1.isChecked() && checkboxQ3A4.isChecked()) {
             finalResult++;
         }
         // Check answer for question 4 and ignore case from user input
@@ -110,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             finalResult++;
         }
         // Check answers for question 6
-        if (checkboxQ6A2.isChecked() && checkboxQ6A3.isChecked()) {
+        if (checkboxQ6A2.isChecked() && checkboxQ6A3.isChecked() && !checkboxQ6A1.isChecked() && !checkboxQ6A4.isChecked()) {
             finalResult++;
         }
         // Check answers for question 7
